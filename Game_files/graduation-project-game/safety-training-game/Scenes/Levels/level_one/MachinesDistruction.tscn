@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmgnrg2qxk2vr"]
+
+[ext_resource type="Texture2D" uid="uid://bjmkh0t6rmguy" path="res://Scenes/Levels/level_one/ec757e3f-7e1a-48f2-9f8f-285bc9ed8556.jpeg" id="1_n3cl5"]
+[ext_resource type="Script" uid="uid://mqnwtlmmaoas" path="res://Scenes/Levels/level_one/MachinesDistruction.cs" id="1_nwohe"]
+[ext_resource type="Texture2D" uid="uid://j77280extgnh" path="res://Scenes/Levels/level_one/firstmachine.png" id="2_ax83x"]
+[ext_resource type="Script" uid="uid://cmddk8rfh50n8" path="res://Scenes/Levels/level_one/Firstmachine.cs" id="2_sba74"]
+[ext_resource type="Texture2D" uid="uid://blvxs32nv78vo" path="res://Scenes/Levels/level_one/secondmachine.png" id="4_gekc2"]
+[ext_resource type="Texture2D" uid="uid://bt65ny4udwfyk" path="res://Scenes/Levels/level_one/thirdmachine.png" id="5_ko0oy"]
+[ext_resource type="Texture2D" uid="uid://cgpvf87c560dq" path="res://Scenes/Levels/level_one/WhatsApp_Image_2025-10-23_at_9.14.58_AM-removebg-preview.png" id="6_2ksw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax83x"]
+size = Vector2(329, 328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sba74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gekc2"]
+
+[sub_resource type="Theme" id="Theme_nwohe"]
+default_font_size = 25
+
+[node name="MachinesDistruction" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_nwohe")
+
+[node name="Ec757e3f7e1a48f29f8f285Bc9Ed8556" type="Sprite2D" parent="."]
+position = Vector2(946.50006, 640.95294)
+scale = Vector2(1.508814, 1.5361707)
+texture = ExtResource("1_n3cl5")
+
+[node name="Firstmachine" type="Area2D" parent="." node_paths=PackedStringArray("Image")]
+script = ExtResource("2_sba74")
+Image = NodePath("firstmachine")
+
+[node name="firstmachine" type="TextureRect" parent="Firstmachine"]
+offset_left = 212.0
+offset_top = 186.0
+offset_right = 824.0
+offset_bottom = 594.0
+texture = ExtResource("2_ax83x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Firstmachine"]
+position = Vector2(515.5, 400)
+shape = SubResource("RectangleShape2D_ax83x")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_sba74")
+
+[node name="secondmachine" type="TextureRect" parent="Area2D2"]
+offset_left = 1156.0
+offset_top = 154.0
+offset_right = 1768.0
+offset_bottom = 562.0
+texture = ExtResource("4_gekc2")
+
+[node name="Area2D3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource("RectangleShape2D_gekc2")
+
+[node name="thirdmachine" type="TextureRect" parent="Area2D3"]
+offset_left = 726.0
+offset_top = 120.0
+offset_right = 1227.0
+offset_bottom = 454.0
+texture = ExtResource("5_ko0oy")
+expand_mode = 1
+
+[node name="instructionpanel" type="Sprite2D" parent="."]
+position = Vector2(459.25, 960.81244)
+scale = Vector2(1.0557164, 1.5779083)
+texture = ExtResource("6_2ksw2")
+
+[node name="instructionslabel" type="RichTextLabel" parent="."]
+offset_left = 126.0
+offset_top = 738.0
+offset_right = 754.0
+offset_bottom = 1114.0
+theme = SubResource("Theme_nwohe")
+horizontal_alignment = 2

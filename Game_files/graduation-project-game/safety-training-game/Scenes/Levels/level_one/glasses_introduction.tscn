@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv2mke5mwwxu5"]
+
+[ext_resource type="Texture2D" uid="uid://fgfpk3n1mnnh" path="res://assets/Leveel-one-assetts/playerinterducetheglasses.png" id="1_o0vxc"]
+[ext_resource type="Texture2D" uid="uid://7aoop6a86w0n" path="res://Scenes/Levels/level_one/button_level_one.png" id="2_i2s7v"]
+[ext_resource type="FontFile" uid="uid://bvcbomdgrr2u0" path="res://Fonts/bitsy-ar-standardline.ttf" id="3_kittx"]
+
+[sub_resource type="Theme" id="Theme_cq4cl"]
+default_font = ExtResource("3_kittx")
+default_font_size = 25
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tp5r"]
+size = Vector2(228, 109)
+
+[node name="GlassesIntroduction" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1043.0
+offset_bottom = 647.0
+
+[node name="Playerinterducetheglasses" type="Sprite2D" parent="."]
+position = Vector2(523, 320.00003)
+scale = Vector2(0.8358586, 0.7956731)
+texture = ExtResource("1_o0vxc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Area2D"]
+offset_left = 797.0
+offset_top = 497.0
+offset_right = 1062.5
+offset_bottom = 674.0
+texture = ExtResource("2_i2s7v")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Area2D"]
+offset_left = 872.0
+offset_top = 537.0
+offset_right = 1002.0
+offset_bottom = 624.0
+theme = SubResource("Theme_cq4cl")
+text = "هيا بنا
+للعمل"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(932, 585.5)
+shape = SubResource("RectangleShape2D_7tp5r")

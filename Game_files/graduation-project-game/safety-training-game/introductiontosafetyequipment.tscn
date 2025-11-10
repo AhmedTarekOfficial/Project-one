@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpief71843ibv"]
+
+[ext_resource type="Script" uid="uid://u1r64x51shu0" path="res://Introductiontosafetyequipment.cs" id="1_h3ce0"]
+
+[sub_resource type="Theme" id="Theme_h3ce0"]
+
+[node name="Introductiontosafetyequipment"]
+script = ExtResource("1_h3ce0")
+
+[node name="shoez_instruction" type="RichTextLabel" parent="." index="3"]
+offset_left = 150.0
+offset_top = 40.0
+offset_right = 548.0
+offset_bottom = 182.0
+theme = SubResource("Theme_h3ce0")

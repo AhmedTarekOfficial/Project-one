@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://cpls6lx70dr1w"]
+
+[ext_resource type="Texture2D" uid="uid://bfyg5e8srvvms" path="res://assets/Leveel-one-assetts/Gemini_Generated_Image_jkar7rjkar7rjkar-removebg-preview.png" id="1_bb5ew"]
+[ext_resource type="Script" uid="uid://cscxmqm6lmhfb" path="res://Scenes/Levels/level_one/DistructionOfCoWorker.cs" id="1_bsa5l"]
+[ext_resource type="Texture2D" uid="uid://cguvlvvayu2gy" path="res://assets/Leveel-one-assetts/Gemini_Generated_Image_8fwnaa8fwnaa8fwn.png" id="2_s302c"]
+[ext_resource type="Texture2D" uid="uid://bc8mi8yam6ap3" path="res://assets/Leveel-one-assetts/button_level_one.png" id="3_bb5ew"]
+[ext_resource type="FontFile" uid="uid://bvcbomdgrr2u0" path="res://Fonts/bitsy-ar-standardline.ttf" id="4_c7urq"]
+[ext_resource type="Script" uid="uid://8ot7fmw01eqh" path="res://Scenes/Levels/level_one/ButtonArea.cs" id="5_ajqn4"]
+[ext_resource type="Script" uid="uid://rdppebk7ns7u" path="res://Scenes/Levels/level_one/BackButtonArea.cs" id="6_5o4gw"]
+[ext_resource type="Texture2D" uid="uid://c6gtqi8ge5vda" path="res://Scenes/Levels/level_one/Gemini_Generated_Image_20m2a520m2a520m2-removebg-preview.png" id="7_2t8b1"]
+
+[sub_resource type="Theme" id="Theme_bsa5l"]
+default_font_size = 10
+
+[sub_resource type="Theme" id="Theme_ajqn4"]
+default_font = ExtResource("4_c7urq")
+default_font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7urq"]
+size = Vector2(270, 156)
+
+[sub_resource type="Theme" id="Theme_5o4gw"]
+default_font = ExtResource("4_c7urq")
+default_font_size = 34
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajqn4"]
+size = Vector2(283, 134)
+
+[sub_resource type="Theme" id="Theme_w4di1"]
+default_font_size = 13
+
+[node name="DistructionOfCoWorker" type="Node2D"]
+script = ExtResource("1_bsa5l")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 108.75
+offset_top = 46.0
+offset_right = 693.3014
+offset_bottom = 415.0
+
+[node name="GeminiGeneratedImageJkar7Rjkar7RjkarRemovebgPreview" type="Sprite2D" parent="."]
+position = Vector2(400.00003, 231)
+scale = Vector2(1.3190359, 1.3112745)
+texture = ExtResource("1_bb5ew")
+
+[node name="GeminiGeneratedImage8Fwnaa8Fwnaa8Fwn2" type="Sprite2D" parent="."]
+position = Vector2(547, 505.25)
+scale = Vector2(0.6654891, 0.71993107)
+texture = ExtResource("2_s302c")
+
+[node name="GeminiGeneratedImage8Fwnaa8Fwnaa8Fwn" type="Sprite2D" parent="."]
+position = Vector2(249.26416, 505.875)
+scale = Vector2(0.7156357, 0.71563566)
+texture = ExtResource("2_s302c")
+
+[node name="ButtonArea" type="Area2D" parent="." node_paths=PackedStringArray("Image")]
+script = ExtResource("5_ajqn4")
+Image = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="ButtonArea"]
+offset_left = 408.0
+offset_top = 386.0
+offset_right = 693.0
+offset_bottom = 609.0
+theme = SubResource("Theme_bsa5l")
+texture = ExtResource("3_bb5ew")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ButtonArea"]
+offset_left = 489.0
+offset_top = 455.0
+offset_right = 629.0
+offset_bottom = 536.0
+theme = SubResource("Theme_ajqn4")
+text = "التالي"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonArea"]
+position = Vector2(552, 498)
+shape = SubResource("RectangleShape2D_c7urq")
+
+[node name="BackButtonArea" type="Area2D" parent="."]
+script = ExtResource("6_5o4gw")
+
+[node name="TextureRect2" type="TextureRect" parent="BackButtonArea"]
+offset_left = 94.0
+offset_top = 386.0
+offset_right = 408.0
+offset_bottom = 609.0
+texture = ExtResource("3_bb5ew")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="BackButtonArea"]
+offset_left = 176.0
+offset_top = 432.0
+offset_right = 388.0
+offset_bottom = 551.0
+theme = SubResource("Theme_5o4gw")
+text = "المشهد 
+السابق"
+
+[node name="second_button" type="CollisionShape2D" parent="BackButtonArea"]
+position = Vector2(254, 498)
+shape = SubResource("RectangleShape2D_ajqn4")
+
+[node name="instructionpopupmessage" type="Sprite2D" parent="."]
+position = Vector2(444.99997, 147)
+scale = Vector2(0.3347229, 0.4626944)
+texture = ExtResource("7_2t8b1")
+
+[node name="instructionmessages" type="RichTextLabel" parent="."]
+offset_left = 344.0
+offset_top = 83.0
+offset_right = 552.0
+offset_bottom = 187.0
+theme = SubResource("Theme_w4di1")
+
+[connection signal="mouse_entered" from="ButtonArea" to="." method="_on_button_area_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonArea" to="." method="_on_button_area_mouse_exited"]

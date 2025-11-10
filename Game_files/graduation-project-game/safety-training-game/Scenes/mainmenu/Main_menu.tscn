@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=3 uid="uid://cokd22uldi8ka"]
+
+[ext_resource type="VideoStream" uid="uid://bht2wn6tmrn2u" path="res://assets/Main_menu_assets/Inside Chinas Mini PC Production How Tiny Computers Are Made - SatisFactory Process (720p, h264, youtube) (online-video-cutter.com).ogv" id="1_hi1v5"]
+[ext_resource type="Texture2D" uid="uid://dele6xwhqtroh" path="res://assets/Enviroment/ezgif-2bedfbdfa4a615.jpg" id="2_h2tm0"]
+[ext_resource type="Texture2D" uid="uid://caambwf1uailf" path="res://assets/Enviroment/ezgif-6a479bb70caadd-removebg-preview.png" id="3_6gjbf"]
+[ext_resource type="Texture2D" uid="uid://ca1ffjg3mrdqt" path="res://assets/Enviroment/1c751b91-6273-4d3b-91c8-4a2da04d8d91-removebg-preview.png" id="4_m10up"]
+[ext_resource type="Script" uid="uid://dotnudf64uc2" path="res://Scenes/mainmenu/Startbutton.cs" id="5_6gjbf"]
+[ext_resource type="Texture2D" uid="uid://0jrjxh3y6ajv" path="res://assets/Enviroment/8d1203e7-d64f-4f15-b204-9c8dcdf20228-removebg-preview.png" id="5_46eqv"]
+[ext_resource type="Texture2D" uid="uid://b5jhm6j28apuq" path="res://assets/Enviroment/endthegamebutton.png" id="6_nn2dn"]
+[ext_resource type="Script" uid="uid://dqa3be7pajvo4" path="res://Scenes/mainmenu/Endthegame.cs" id="8_46eqv"]
+[ext_resource type="Script" uid="uid://duyu1lmt16jgl" path="res://Scenes/mainmenu/Settingbutoonstransatio.cs" id="8_m10up"]
+
+[sub_resource type="Theme" id="Theme_siod4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi1v5"]
+size = Vector2(414, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gjbf"]
+size = Vector2(388, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m10up"]
+size = Vector2(375, 123)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Game-panel-button" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1155.0
+offset_bottom = 646.0
+theme = SubResource("Theme_siod4")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Game-panel-button"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -47.0
+offset_right = 1274.0
+offset_bottom = 673.0
+stream = ExtResource("1_hi1v5")
+autoplay = true
+loop = true
+buffering_msec = 700
+
+[node name="Ezgif2Bedfbdfa4a615" type="Sprite2D" parent="."]
+position = Vector2(576, 328)
+scale = Vector2(0.972629, 0.8326973)
+texture = ExtResource("2_h2tm0")
+
+[node name="Ezgif6a479Bb70CaaddRemovebgPreview" type="Sprite2D" parent="."]
+position = Vector2(812, 341)
+scale = Vector2(1.185989, 1.1859893)
+texture = ExtResource("3_6gjbf")
+
+[node name="Startbutton" type="Area2D" parent="." node_paths=PackedStringArray("Image")]
+script = ExtResource("5_6gjbf")
+Image = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="Startbutton"]
+offset_left = 11.0
+offset_top = -47.0
+offset_right = 559.35626
+offset_bottom = 298.0
+texture = ExtResource("4_m10up")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Startbutton"]
+position = Vector2(282, 123.5)
+shape = SubResource("RectangleShape2D_hi1v5")
+
+[node name="Settingbutoonstransatio" type="Area2D" parent="." node_paths=PackedStringArray("Image")]
+script = ExtResource("8_m10up")
+Image = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="Settingbutoonstransatio"]
+offset_left = 24.0
+offset_top = 122.0
+offset_right = 532.2457
+offset_bottom = 460.0
+texture = ExtResource("5_46eqv")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Settingbutoonstransatio"]
+position = Vector2(277, 289)
+shape = SubResource("RectangleShape2D_6gjbf")
+
+[node name="Endthegame" type="Area2D" parent="." node_paths=PackedStringArray("Image")]
+script = ExtResource("8_46eqv")
+Image = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="Endthegame"]
+offset_left = 42.0
+offset_top = 283.0
+offset_right = 516.0
+offset_bottom = 640.0
+texture = ExtResource("6_nn2dn")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endthegame"]
+position = Vector2(282.5, 459.5)
+shape = SubResource("RectangleShape2D_m10up")
+
+[connection signal="mouse_entered" from="Startbutton" to="Startbutton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Startbutton" to="Startbutton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Settingbutoonstransatio" to="Startbutton" method="_on_settingsbutton_mouse_entered"]
+[connection signal="mouse_exited" from="Settingbutoonstransatio" to="Startbutton" method="_on_settingsbutton_mouse_exited"]
+[connection signal="mouse_entered" from="Endthegame" to="Endthegame" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Endthegame" to="Endthegame" method="_on_mouse_exited"]
